@@ -1,11 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+//Import Components
+import Header from './Components/Header';
+import MainGrid from './Components/MainGrid';
 
 function App() {
   return (
     <div>
-      <h1>Covid Tracking App</h1>
+      <Header />
+      <MainGrid />
     </div>
   );
 }
