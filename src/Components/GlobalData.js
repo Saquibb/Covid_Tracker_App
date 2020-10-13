@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import NumberFormat from 'react-number-format';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -114,9 +115,15 @@ export default function GlobalData() {
       <Paper elevation={3}>
         <div className={classTypography.root}>
           <Typography variant='h4' gutterBottom style={{ color: 'black' }}>
-            {globalData &&
-              globalData.results &&
-              globalData.results[0].total_cases}
+            <NumberFormat
+              value={
+                globalData &&
+                globalData.results &&
+                globalData.results[0].total_cases
+              }
+              displayType={'text'}
+              thousandSeparator={true}
+            />
           </Typography>
           <Typography
             variant='subtitle2'
@@ -130,10 +137,16 @@ export default function GlobalData() {
       <Paper elevation={3}>
         <div className={classTypography.root}>
           <Typography variant='h4' gutterBottom style={{ color: 'orange' }}>
-            {globalData &&
-              globalData.results &&
-              globalData.results[0].total_unresolved +
-                globalData.results[0].total_active_cases}
+            <NumberFormat
+              value={
+                globalData &&
+                globalData.results &&
+                globalData.results[0].total_unresolved +
+                  globalData.results[0].total_active_cases
+              }
+              displayType={'text'}
+              thousandSeparator={true}
+            />
           </Typography>
           <Typography
             variant='subtitle2'
@@ -147,9 +160,15 @@ export default function GlobalData() {
       <Paper elevation={3}>
         <div className={classTypography.root}>
           <Typography variant='h4' gutterBottom style={{ color: 'green' }}>
-            {globalData &&
-              globalData.results &&
-              globalData.results[0].total_recovered}
+            <NumberFormat
+              value={
+                globalData &&
+                globalData.results &&
+                globalData.results[0].total_recovered
+              }
+              displayType={'text'}
+              thousandSeparator={true}
+            />
           </Typography>
           <Typography
             variant='subtitle2'
@@ -163,9 +182,15 @@ export default function GlobalData() {
       <Paper elevation={3}>
         <div className={classTypography.root}>
           <Typography variant='h4' gutterBottom style={{ color: 'red' }}>
-            {globalData &&
-              globalData.results &&
-              globalData.results[0].total_deaths}
+            <NumberFormat
+              value={
+                globalData &&
+                globalData.results &&
+                globalData.results[0].total_deaths
+              }
+              displayType={'text'}
+              thousandSeparator={true}
+            />
           </Typography>
           <Typography
             variant='subtitle2'
