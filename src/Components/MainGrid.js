@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
+//Import GlobalData
+import GlobalData from './GlobalData';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -21,7 +24,9 @@ export default function MainGrid() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={4}>
-          <Paper className={classes.paper}>Global Data</Paper>
+          <Paper className={classes.paper}>
+            <GlobalData />
+          </Paper>
         </Grid>
         <Grid item xs={8}>
           <Paper className={classes.paper}>Country Data</Paper>
