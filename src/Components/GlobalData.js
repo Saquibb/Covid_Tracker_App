@@ -33,9 +33,7 @@ export default function GlobalData() {
   useEffect(() => {
     async function fetchGlobalData() {
       setDataLoading(true);
-      const apiResponse = await fetch(
-        'https://api.thevirustracker.com/free-api?global=stats'
-      );
+      const apiResponse = await fetch('https://covid19.mathdro.id/api/');
       console.log(apiResponse);
       const dataFromApi = await apiResponse.json();
       console.log(dataFromApi);
@@ -118,9 +116,7 @@ export default function GlobalData() {
             <CountUp
               start={0}
               end={
-                globalData &&
-                globalData.results &&
-                globalData.results[0].total_cases
+                globalData && globalData.confirmed && globalData.confirmed.value
               }
               duration={2.5}
               separator=','
@@ -142,38 +138,11 @@ export default function GlobalData() {
       </Paper>
       <Paper elevation={3}>
         <div className={classTypography.root}>
-          <Typography variant='h4' gutterBottom style={{ color: 'orange' }}>
-            <CountUp
-              start={0}
-              end={
-                globalData &&
-                globalData.results &&
-                globalData.results[0].total_unresolved +
-                  globalData.results[0].total_active_cases
-              }
-              duration={2.5}
-              separator=','
-            />
-          </Typography>
-
-          <Typography
-            variant='subtitle2'
-            gutterBottom
-            style={{ color: 'orange', fontWeight: 'bold' }}
-          >
-            Active
-          </Typography>
-        </div>
-      </Paper>
-      <Paper elevation={3}>
-        <div className={classTypography.root}>
           <Typography variant='h4' gutterBottom style={{ color: 'green' }}>
             <CountUp
               start={0}
               end={
-                globalData &&
-                globalData.results &&
-                globalData.results[0].total_recovered
+                globalData && globalData.recovered && globalData.recovered.value
               }
               duration={2.5}
               separator=','
@@ -193,11 +162,7 @@ export default function GlobalData() {
           <Typography variant='h4' gutterBottom style={{ color: 'red' }}>
             <CountUp
               start={0}
-              end={
-                globalData &&
-                globalData.results &&
-                globalData.results[0].total_deaths
-              }
+              end={globalData && globalData.deaths && globalData.deaths.value}
               duration={2.5}
               separator=','
             />
