@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import NumberFormat from 'react-number-format';
+import CountUp from 'react-countup';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -115,16 +115,22 @@ export default function GlobalData() {
       <Paper elevation={3}>
         <div className={classTypography.root}>
           <Typography variant='h4' gutterBottom style={{ color: 'black' }}>
-            <NumberFormat
-              value={
+            <CountUp
+              start={0}
+              end={
                 globalData &&
                 globalData.results &&
                 globalData.results[0].total_cases
               }
-              displayType={'text'}
-              thousandSeparator={true}
+              duration={2.5}
+              separator=','
             />
           </Typography>
+          <Typography
+            variant='subtitle2'
+            gutterBottom
+            style={{ color: 'black' }}
+          ></Typography>
           <Typography
             variant='subtitle2'
             gutterBottom
@@ -137,17 +143,19 @@ export default function GlobalData() {
       <Paper elevation={3}>
         <div className={classTypography.root}>
           <Typography variant='h4' gutterBottom style={{ color: 'orange' }}>
-            <NumberFormat
-              value={
+            <CountUp
+              start={0}
+              end={
                 globalData &&
                 globalData.results &&
                 globalData.results[0].total_unresolved +
                   globalData.results[0].total_active_cases
               }
-              displayType={'text'}
-              thousandSeparator={true}
+              duration={2.5}
+              separator=','
             />
           </Typography>
+
           <Typography
             variant='subtitle2'
             gutterBottom
@@ -160,14 +168,15 @@ export default function GlobalData() {
       <Paper elevation={3}>
         <div className={classTypography.root}>
           <Typography variant='h4' gutterBottom style={{ color: 'green' }}>
-            <NumberFormat
-              value={
+            <CountUp
+              start={0}
+              end={
                 globalData &&
                 globalData.results &&
                 globalData.results[0].total_recovered
               }
-              displayType={'text'}
-              thousandSeparator={true}
+              duration={2.5}
+              separator=','
             />
           </Typography>
           <Typography
@@ -182,14 +191,15 @@ export default function GlobalData() {
       <Paper elevation={3}>
         <div className={classTypography.root}>
           <Typography variant='h4' gutterBottom style={{ color: 'red' }}>
-            <NumberFormat
-              value={
+            <CountUp
+              start={0}
+              end={
                 globalData &&
                 globalData.results &&
                 globalData.results[0].total_deaths
               }
-              displayType={'text'}
-              thousandSeparator={true}
+              duration={2.5}
+              separator=','
             />
           </Typography>
           <Typography

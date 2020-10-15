@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    textAlign: 'center',
   },
 }));
 
@@ -24,7 +25,7 @@ export default function Header() {
       <AppBar position='static'>
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
-            Covid-19 Tracker
+            Covid-19 Tracker App:Muhammad Saquib
           </Typography>
         </Toolbar>
       </AppBar>
